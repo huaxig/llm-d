@@ -47,13 +47,6 @@ patches:
                 securityContext:
                   capabilities:
                     add: ["IPC_LOCK", "NET_ADMIN"]
-            tolerations:
-              - effect: NoSchedule
-                key: nvidia.com/gpu
-                operator: Exists
-              - key: kubernetes.io/arch
-                operator: Exists
-                effect: NoSchedule
   # Configure decode deployment with DRANet resourceClaims (gke-rdma-claim-gb300), A4X Max GPU resources, env, and capabilities
   - patch: |-
       apiVersion: apps/v1
@@ -103,10 +96,3 @@ patches:
                 securityContext:
                   capabilities:
                     add: ["IPC_LOCK", "NET_ADMIN"]
-            tolerations:
-              - effect: NoSchedule
-                key: nvidia.com/gpu
-                operator: Exists
-              - key: kubernetes.io/arch
-                operator: Exists
-                effect: NoSchedule
